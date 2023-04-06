@@ -21,16 +21,33 @@ enum {
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    // // Get current mod and one-shot mod states.
+    // const uint8_t mods = get_mods();
+    // const uint8_t oneshot_mods = get_oneshot_mods();
+
+    // if (keycode == KC_QUOT && record->event.pressed && ((mods | oneshot_mods) & MOD_MASK_CTRL)) {
+    //     del_oneshot_mods(MOD_MASK_CTRL);
+    //     unregister_mods(MOD_MASK_CTRL);
+    //     SEND_STRING(SS_TAP(X_3) SS_DELAY(700) SS_TAP(X_SPC)
+    //         SS_DELAY(10) SS_TAP(X_BTN1) SS_DELAY(10)
+    //         SS_TAP(X_SPC) SS_DELAY(10) SS_TAP(X_F));
+    //     register_mods(mods);
+    //     return false;
+    // }
+
     switch (keycode) {
-        case WELLSKATE:
+        case D_WELLSKATE:
             if (record->event.pressed) {
                 // when keycode WELLSKATE is pressed
-                SEND_STRING(SS_TAP(X_3) SS_DELAY(100) SS_TAP(X_SPC) SS_DELAY(100) SS_TAP(X_MS_L) SS_DELAY(100) SS_TAP(X_SPC) SS_DELAY(100) SS_TAP(X_F));
+                SEND_STRING(SS_TAP(X_3) SS_DELAY(700) SS_TAP(X_SPC)
+                    SS_DELAY(10) SS_TAP(X_BTN1) SS_DELAY(10)
+                    SS_TAP(X_SPC) SS_DELAY(10) SS_TAP(X_F));
             }
             return false;
     }
     return true;
 };
+
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT(
