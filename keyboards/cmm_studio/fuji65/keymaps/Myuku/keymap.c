@@ -29,7 +29,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     //     del_oneshot_mods(MOD_MASK_CTRL);
     //     unregister_mods(MOD_MASK_CTRL);
     //     SEND_STRING(SS_TAP(X_3) SS_DELAY(700) SS_TAP(X_SPC)
-    //         SS_DELAY(10) SS_TAP(X_BTN1) SS_DELAY(10)
+    //         SS_DELAY(10) SS_TAP(X_BTN1) SS_DELAY(10)w
     //         SS_TAP(X_SPC) SS_DELAY(10) SS_TAP(X_F));
     //     register_mods(mods);
     //     return false;
@@ -39,9 +39,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case D_WELLSKATE:
             if (record->event.pressed) {
                 // when keycode WELLSKATE is pressed
-                SEND_STRING(SS_TAP(X_3) SS_DELAY(700) SS_TAP(X_SPC)
+                SEND_STRING(SS_TAP(X_3) SS_DELAY(550) SS_TAP(X_SPC)
                     SS_DELAY(10) SS_TAP(X_BTN1) SS_DELAY(10)
-                    SS_TAP(X_SPC) SS_DELAY(10) SS_TAP(X_F));
+                    SS_TAP(X_SPC) SS_DELAY(10) SS_TAP(X_F) SS_TAP(X_R));
             }
             return false;
     }
